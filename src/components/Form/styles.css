@@ -1,0 +1,70 @@
+/* IDEA: When user in the form make form with focus styles */
+.form {
+  margin: 4rem auto;
+}
+
+.form__title:before {
+  content: "";
+  width: 40px;
+  height: 2px;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  background-color: #8fa2aa;
+}
+
+.form__title {
+  padding: 4px 0;
+  position: relative;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 100;
+  margin: 1.5rem auto;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #8fa2aa20;
+  border-radius: 16px;
+  padding: .8rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.input,
+input[type="submit"] {
+  font-size: 1em;
+  border-radius: 16px;
+  border: 3px solid #fff;
+  margin: 1rem .5rem 1rem 0;
+  padding: .6rem;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  animation: opacity .3s ease-in-out;
+}
+
+.input:hover {
+ opacity: 0.5;
+ cursor: pointer;
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  color: #384449;
+  font-size: .8em;
+  letter-spacing: 0.2em;
+  border-radius: 16px;
+  height: 45px;
+  background-color: #c9c9c9;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  border-color: #384449;
+  opacity: .8;
+}

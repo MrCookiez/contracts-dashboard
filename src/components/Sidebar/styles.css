@@ -1,0 +1,15 @@
+.sidebar {
+  min-height: 200px;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+
+.sidebar__title {
+  color: #8fa2aa;
+  margin: 0 auto 4rem;
+  letter-spacing: 0.5rem;
+}
+
+.sidebar__container {
+  /* border: 4px solid greenyellow; */
+}
