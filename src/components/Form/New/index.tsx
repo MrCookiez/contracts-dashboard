@@ -20,7 +20,7 @@ const Form = ({ title, setContracts }: Props) => {
     email: '',
     startDate: '',
     cancellationDate: '',
-    status: 'ok'
+    status: '-'
   });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +28,12 @@ const Form = ({ title, setContracts }: Props) => {
   }
 
   const uploadNewContract = async (data: any) => {
+
     const newContract = await addContract(data);
-    setContracts((prev: any) => ([ ...prev, newContract?.data]));
+
+    if (newContract?.data) {
+      setContracts((prev: any) => ([ ...prev, newContract?.data]));
+    }
   };
 
   const handleOnSubmit = (e: React.FormEvent<EventTarget>): void => {
@@ -47,7 +51,9 @@ const Form = ({ title, setContracts }: Props) => {
     <div className="form">
       <h2 className='form__title'>{title}</h2>
       <form className="form__container" action="POST" onSubmit={handleOnSubmit}>
+        <label htmlFor="firstName">First name:</label>
         <input
+          id="firstName"
           className="input"
           type="text"
           name="firstName"
@@ -56,7 +62,9 @@ const Form = ({ title, setContracts }: Props) => {
           value={data?.firstName}
           onChange={(e) => onChange(e)}
         />
+        <label htmlFor="lastName">Last name:</label>
         <input
+          id="lastName"
           className="input"
           type="text"
           name="lastName"
@@ -65,7 +73,9 @@ const Form = ({ title, setContracts }: Props) => {
           value={data?.lastName}
           onChange={(e) => onChange(e)}
         />
+        <label htmlFor="email">Email:</label>
         <input
+          id="email"
           className="input"
           type="text"
           name="email"
@@ -74,7 +84,9 @@ const Form = ({ title, setContracts }: Props) => {
           value={data?.email}
           onChange={(e) => onChange(e)}
         />
+        <label htmlFor="startDate">Start date:</label>
         <input
+          id="startDate"
           className="input"
           type="date"
           name="startDate"
@@ -83,7 +95,9 @@ const Form = ({ title, setContracts }: Props) => {
           max={data?.cancellationDate}
           onChange={(e) => onChange(e)}
         />
+        <label htmlFor="cancellationDate">Cancellation date:</label>
         <input
+          id="cancellationDate"
           className="input"
           type="date"
           name="cancellationDate"

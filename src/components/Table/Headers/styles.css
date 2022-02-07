@@ -11,3 +11,9 @@
 .header__col {
   flex: 1;
 }
+
+.header__col--id {
+  flex: unset;
+  width: fit-content;
+  padding: 0 20px;
+}

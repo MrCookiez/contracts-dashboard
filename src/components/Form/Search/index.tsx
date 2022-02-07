@@ -18,7 +18,12 @@ const SearchForm = ({ title, setContract }: Props) => {
   const findContractById = useCallback(async () => {
     const res = await getContract(id);
 
-    setContract(res?.data);
+    if (res?.data && !res?.loading) {
+      setContract(res?.data);
+      return;
+    }
+
+    setContract('Not found');
 
   }, [id, setContract]);
 
