@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles.css';
 
-// import { addContract } from '../../api/addContract';
+import { addContract } from '../../../api/addContract';
 
 /**
  * Note: Normally I use a library like `react-hook-form` for handling form data,
@@ -14,18 +14,23 @@ interface Props {
 }
 
 const Form = ({ title, setContracts }: Props) => {
-  // Initialize form data
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    startData: '',
-    cancelationDate: '',
+    startDate: '',
+    cancellationDate: '',
+    status: 'ok'
   });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
+
+  const uploadNewContract = async (data: any) => {
+    const newContract = await addContract(data);
+    setContracts((prev: any) => ([ ...prev, newContract?.data]));
+  };
 
   const handleOnSubmit = (e: React.FormEvent<EventTarget>): void => {
     e.preventDefault();
@@ -35,13 +40,7 @@ const Form = ({ title, setContracts }: Props) => {
       return;
     }
 
-  /**
-   * const newContract = await addContract(data);
-   */
-
-   const newContract = data;
-   setContracts((prev: any) => ([ ...prev, newContract]));
-    // console.log('data => ', data);
+    uploadNewContract(data);
   };
 
   return (
@@ -78,19 +77,19 @@ const Form = ({ title, setContracts }: Props) => {
         <input
           className="input"
           type="date"
-          name="startData"
+          name="startDate"
           placeholder="Start date"
-          value={data?.startData}
-          max={data?.cancelationDate}
+          value={data?.startDate}
+          max={data?.cancellationDate}
           onChange={(e) => onChange(e)}
         />
         <input
           className="input"
           type="date"
-          name="cancelationDate"
-          placeholder="Cancelation date"
-          value={data?.cancelationDate}
-          min={data?.startData}
+          name="cancellationDate"
+          placeholder="cancellation date"
+          value={data?.cancellationDate}
+          min={data?.startDate}
           onChange={(e) => onChange(e)}
         />
         <input type="submit" value="submit" />

@@ -3,6 +3,6 @@ export const mockResponse = {
     lastName: "Doe",
     email: "jd@imail.com",
     status: "ok",
-    startData: "",
-    cancelationDate: ""
+    startDate: "",
+    cancellationDate: ""
   }

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { url } from '../config';
 
 type params = {
@@ -5,8 +7,8 @@ type params = {
     lastName: string;
     email: string;
     status?: string;
-    startData?: string;
-    cancelationDate?: string;
+    startDate?: string;
+    cancellationDate?: string;
 }
 
 export const isValidParams = (params: params) => {
@@ -23,27 +25,13 @@ export const addContract = async (params: params) => {
         error: { message:'invalid params' }
     }
 
-    let searchParams = new URLSearchParams(params);
-    searchParams.toString();
+    const response = await axios.post(url, params)
+        .then(res => {
+            loading = false;
+            return res;
+        });
 
-    // Note: Axios or other fetching library could be used for fetching to make it simple
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: searchParams
-        }).then(res => {
-            if (res.status > 199 && res.status < 299) loading = false;
-            return { data: res, loading, error};
-        })
+    const data = await response?.data;
 
-        return await response;
-    } catch (error) {
-        return {
-            data: null,
-            loading: false,
-            error: {
-                message: `Failed to fetch data from API, ${error}`
-            }
-        }
-    }
+    return { data, loading, error };
 };

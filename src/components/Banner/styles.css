@@ -1,0 +1,13 @@
+.banner {
+  width: 100%;
+}
+
+.banner__title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #384449;
+  margin: 1.5rem 2rem;
+  letter-spacing: 0.2rem;
+  opacity: 0.8;
+}

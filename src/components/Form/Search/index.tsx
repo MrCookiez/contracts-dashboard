@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-// import './styles.css';
-
-// import { getContract } from '../../api/addContract';
+import React, { useState, useCallback } from 'react';
+import './styles.css';
+import { getContract } from '../../../api/getContract';
 
 /**
  * Note: Normally I use a library like `react-hook-form` for handling form data,
@@ -10,42 +9,41 @@ import React, { useState } from 'react';
 
 interface Props {
   title?: string;
-  setContracts: (contracts: any) => void;
+  setContract: (contract: any) => void;
 }
 
-const SearchForm = ({ title, setContracts }: Props) => {
-  // Initialize form data
+const SearchForm = ({ title, setContract }: Props) => {
   const [id, setId] = useState(0);
+
+  const findContractById = useCallback(async () => {
+    const res = await getContract(id);
+
+    setContract(res?.data);
+
+  }, [id, setContract]);
 
   const handleOnSubmit = (e: React.FormEvent<EventTarget>): void => {
     e.preventDefault();
 
-    if (!id) {
-      alert('Id is missing');
-      return;
-    }
+    if (!id) { alert('ID is missing'); return; }
 
-    /**
-     * const foundContract = await getContract(id);
-     */
-
-  //  const newContract = foundContract || {};
-  //  setContracts((prev: any) => ([ ...prev, newContract]));
-    // console.log('data => ', data);
+    findContractById();
   };
 
   return (
     <div className="form">
       <h2 className='form__title'>{title}</h2>
       <form className="form__container row" action="POST" onSubmit={handleOnSubmit}>
+        <label className="label" htmlFor="id">ID:</label>
         <input
+          id="id"
           className="input"
           type="number"
           name="id"
-          placeholder="1"
           required
-          value={id}
-          onChange={(e) => console.log(e)} // e.target.value
+          min="1"
+          defaultValue={id}
+          onChange={(e) => setId(+e.target.value)}
         />
         <input type="submit" value="search" />
       </form>

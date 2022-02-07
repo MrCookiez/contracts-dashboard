@@ -5,8 +5,8 @@ export const mockResponse = [
     "lastName": "Doe",
     "email": "jd@imail.com",
     "status": "ok",
-    "startData": "",
-    "cancelationDate": ""
+    "startDate": "",
+    "cancellationDate": ""
   },
   {
     "id": '2',
@@ -14,8 +14,8 @@ export const mockResponse = [
     "lastName": "Doe2",
     "email": "jd@imail2.com",
     "status": "ok",
-    "startData": "",
-    "cancelationDate": ""
+    "startDate": "",
+    "cancellationDate": ""
   },
 ];
 

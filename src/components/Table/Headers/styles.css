@@ -1,0 +1,13 @@
+.table__header {
+  display: flex;
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+  padding: 0 0.8rem;
+  font-weight: bold;
+  opacity: 0.8;
+  letter-spacing: 0.1rem;
+}
+
+.header__col {
+  flex: 1;
+}

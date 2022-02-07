@@ -1,45 +1,57 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Container, Sidebar, Form } from './components';
+import { Container, Sidebar, Form, Banner, Table } from './components';
 import { getContracts } from './api';
 
 const  App = () => {
   const [contracts, setContracts] = useState([]);
-  const [contract, setContract] = useState({});
+  const [contract, setContract] = useState(null);
 
-  // const fetchAllContracts = useCallback(async () => {
-  //   const res = await getContracts();
-  //   setContracts(res?.data)
-  // }, []);
+  const fetchAllContracts = useCallback(async () => {
+    const res = await getContracts();
+    setContracts(res?.data)
+  }, []);
 
-  // useEffect(() => {
-  //   fetchAllContracts();
-  // }, []);
-
-  console.log('contracts => ', contracts);
+  useEffect(() => {
+    fetchAllContracts();
+  }, [fetchAllContracts]);
 
   return (
-    <div className='app'>
-      <Sidebar title="Dashboard">
-        <Form.Search title='Find contract by id' setContracts={setContracts} />
-        <Form.New title='new contract' setContracts={setContracts} />
-      </Sidebar>
+    <>
+      <Banner />
 
-      <div className="main">
-        {/* <Container title="Result:">
-          <div>foundContractById</div>
-        </Container> */}
+      <div className='app'>
+        <Sidebar>
+          <Form.Search title='Find contract by id' setContract={setContract} />
+          <Form.New title='new contract' setContracts={setContracts} />
+        </Sidebar>
 
-        {contracts.length > 0 && (
-          <Container title="All contracts:">
-            {contracts.map((contract: any, index) => (
-              <div key={index.toString()}>
-                {contract.firstName}
-              </div>
-            ))}
-          </Container>
-        )}
+        <div className="main">
+          {(contract !== 'Not found') && contract && (
+            <Container className={contract ? 'found' : ''} title="found:">
+              <Table contracts={[contract]} />
+            </Container>
+          )}
+
+          {(contract === 'Not found') &&(
+            <Container title="RESULTS:">
+              <div>Not found</div>
+            </Container>
+          )}
+
+          {contracts.length > 0 ? (
+            <Container title="All contracts:">
+              <Table contracts={contracts} />
+            </Container>
+          ) : (
+            <Container title="All contracts:">
+              <span>No contracts available...</span>
+              <br />
+              <span>- Please go ahead and add a new one</span>
+            </Container>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

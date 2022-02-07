@@ -1,16 +1,15 @@
-/* IDEA: When user in the form make form with focus styles */
 .form {
   margin: 4rem auto;
 }
 
-.form__title:before {
+.form__title:after {
   content: "";
   width: 40px;
   height: 2px;
   position: absolute;
-  top: -2px;
+  bottom: -2px;
   left: 0;
-  background-color: #8fa2aa;
+  background-color: #8fa2aa50;
 }
 
 .form__title {
@@ -26,6 +25,7 @@
 .form__container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: #8fa2aa20;
   border-radius: 16px;
   padding: .8rem;
@@ -66,5 +66,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
   cursor: pointer;
   border-color: #384449;
-  opacity: .8;
+  opacity: .7;
+}
+
+input[type="submit"]:active {
+  cursor: pointer;
+  color: #39FF14;
+  border-color: #39FF14;
+  background-color: #384449;
+  opacity: .7;
 }

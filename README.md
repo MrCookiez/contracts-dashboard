@@ -1,6 +1,6 @@
 # Contracts Dashboard
 
-🟢 &nbsp; [Live](#)
+🟢 &nbsp; [Live](https://contracts-dashboard-mrcookiez.vercel.app/)
 
 ## Description
 
@@ -15,7 +15,7 @@ Features:
 ## Tech Stack
 
 - React JS
-- Modular CSS
+- CSS
 - TypeScript
 
 ## Requirements
@@ -40,7 +40,7 @@ Features:
 
 <hr />
 
-## 📘 Resources
+## 📖 Resources
 
 Find the full API documentation [here](https://frontend-coding-project.herokuapp.com/)
 
@@ -70,5 +70,18 @@ Create a contract available params:
 - `lastName`
 - `email`
 - `status`
-- `startData`
-- `cancelationDate`
+- `startDate`
+- `cancellationDate`
+
+
+### 🖊️ NOTES:
+
+The [API](frontend-coding-project.herokuapp.com) fails to respond because of CORS error. This
+
+Please make sure you allow the cross origin.
+
+```
+
+```
+
+For sake of simplicity, I used a mock API to simulate the response. ([Link](https://61febb35a58a4e00173c999d.mockapi.io/api/contracts))

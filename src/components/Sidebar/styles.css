@@ -1,15 +1,11 @@
 .sidebar {
   min-height: 200px;
-  height: 100%;
-  /* border: 1px solid red; */
+  min-width: 400px;
+  width: fit-content;
 }
 
 .sidebar__title {
-  color: #8fa2aa;
+  color: #38444999;
   margin: 0 auto 4rem;
   letter-spacing: 0.5rem;
-}
-
-.sidebar__container {
-  /* border: 4px solid greenyellow; */
 }

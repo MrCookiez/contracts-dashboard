@@ -1,15 +1,15 @@
+import axios from 'axios';
 import { url } from '../config';
 
 export const getContracts = async () => {
   let loading = true, error = { message: '' };
 
-  // Note: Axios or other fetching library could be used for fetching to make it simple
-  const response = await fetch(url).then(res => {
+  const response = await axios.get(url).then(res => {
     loading = false;
     return res;
   });
 
-  const data = await response.json();
+  const data = await response?.data;
 
   return { data, loading, error };
 };
