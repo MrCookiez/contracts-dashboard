@@ -73,15 +73,6 @@ Create a contract available params:
 - `startDate`
 - `cancellationDate`
 
-
-### 🖊️ NOTES:
-
-❌ The [API](frontend-coding-project.herokuapp.com) fails to respond because of CORS config on the server.
-
-![error_report](https://user-images.githubusercontent.com/21040307/152731450-70356c90-cd04-4c93-ac87-6e32de12188b.png)
-
-For sake of simplicity, I used a mock API (replica of the above) to simulate the responses. ([Link](https://61febb35a58a4e00173c999d.mockapi.io/api/contracts))
-
 ### Things that can be improved: 🔨
 
 * Use a State management lib like ReactQuery or SWR to cache the responses
