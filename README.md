@@ -76,12 +76,6 @@ Create a contract available params:
 
 ### 🖊️ NOTES:
 
-The [API](frontend-coding-project.herokuapp.com) fails to respond because of CORS error. This
+The [API](frontend-coding-project.herokuapp.com) fails to respond because of CORS config on the server.
 
-Please make sure you allow the cross origin.
-
-```
-
-```
-
-For sake of simplicity, I used a mock API to simulate the response. ([Link](https://61febb35a58a4e00173c999d.mockapi.io/api/contracts))
+For sake of simplicity, I used a mock API (replica of the above) to simulate the responses. ([Link](https://61febb35a58a4e00173c999d.mockapi.io/api/contracts))
