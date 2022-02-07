@@ -82,7 +82,7 @@ Create a contract available params:
 
 For sake of simplicity, I used a mock API (replica of the above) to simulate the responses. ([Link](https://61febb35a58a4e00173c999d.mockapi.io/api/contracts))
 
-### Improvements: 🔨
+### Things to that can be improved: 🔨
 
 * Use a State management lib like ReactQuery or SWR to cache the responses
 * Use CSS Modules to Isolate css per compoent
