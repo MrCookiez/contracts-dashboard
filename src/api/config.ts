@@ -1,1 +1,1 @@
-export const url = 'https://61febb35a58a4e00173c999d.mockapi.io/api/contracts';
+export const url = 'https://frontend-coding-project.herokuapp.com/contracts';
