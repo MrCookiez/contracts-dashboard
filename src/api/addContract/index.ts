@@ -17,7 +17,7 @@ export const isValidParams = (params: params) => {
 }
 
 export const addContract = async (params: params) => {
-    let loading = true, error = false;
+    let loading = true, error = { message: '' };
 
     if (!isValidParams(params)) return {
         data: null,
@@ -29,6 +29,10 @@ export const addContract = async (params: params) => {
         .then(res => {
             loading = false;
             return res;
+        }).catch(err => {
+            loading = false;
+            error.message = `Opps..., ${err.message}`;
+            return null;
         });
 
     const data = await response?.data;

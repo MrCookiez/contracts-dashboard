@@ -7,6 +7,9 @@ export const getContracts = async () => {
   const response = await axios.get(url).then(res => {
     loading = false;
     return res;
+  }).catch(err => {
+    error.message = `Opps..., ${err.message}`;
+    return null;
   });
 
   const data = await response?.data;
